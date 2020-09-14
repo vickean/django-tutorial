@@ -9,9 +9,15 @@ class Folder(models.Model):
     name = models.CharField(max_length=200)
     create_date = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Note(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     demo = models.ForeignKey(Folder, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     content = models.TextField(max_length=500)
+
+    def __str__(self):
+        return self.title
