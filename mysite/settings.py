@@ -12,6 +12,36 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 
+# to read notes.private file in root directory for values
+
+
+def privateVars(key):
+    try:
+        with open("notes.private", "r") as f:
+            items = f.readlines()
+
+            def filterAndStrip(string):
+                if string[0] == '#':
+                    return
+                if string[0] == '\n':
+                    return
+                if string.startswith(key) == False:
+                    return
+
+                return string.rstrip()
+
+            processed = list(map(filterAndStrip, items))
+
+            filtered = list(filter(None, processed))
+
+            if len(filtered) > 0:
+                return filtered[0].split('=')[1]
+            else:
+                return
+    except FileNotFoundError:
+        return
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +55,7 @@ SECRET_KEY = 'gjc-#oq(j)wc&uo2u%a8it99kw6o)tya^by=jg_qu#-00c_!^@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', privateVars('hostip')]
 
 
 # Application definition
