@@ -1,5 +1,22 @@
 # Notes
 
+## Django files and what they do
+
+- `__init__.py`
+  - to tell python that this is an app.
+- `admin.py`
+  - for admin panel stuff
+- `apps.py`
+  - for this apps settings. Main app has to link to this in settings.py to work.
+- `models.py`
+  - models for data defined as classes.
+- `tests.py`
+  - test cases for this app.
+- `urls.py`
+  - defines urls that are linked to views.
+- `views.py`
+  - defines logic for views/api endpoints for this app.
+
 ## When Changing Anything in Models
 
 1. make changes in `models.py`.
