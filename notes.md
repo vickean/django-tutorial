@@ -86,3 +86,8 @@ Generic views expect the data being passed to them be named 'pk' instead of any 
 
 `template_name` is used to define the template that the view is supposed to use instead of the default.
 `context_object_name` is used to define the name that will be used in the template to reference and display the queried data instead of the default name that Django automatically provides.
+
+## Testing
+
+Test classes should be subclasses of `django.test.TestCase` class.
+Test methods should have names that start with `test`.
