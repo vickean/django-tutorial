@@ -91,3 +91,15 @@ Generic views expect the data being passed to them be named 'pk' instead of any 
 
 Test classes should be subclasses of `django.test.TestCase` class.
 Test methods should have names that start with `test`.
+
+## Admin forms
+
+You can create inline fomrs for related objects inside an objects' Add form by creating a class that extends admin.
+
+```python
+class ChoiceInline(admin.StackedInline):
+  model = Choice
+  extra = 3
+```
+
+There are alternatives to `StackedInline` ie. `TabularInline` that displays the fields in a tabular form instead of a stacked form.
