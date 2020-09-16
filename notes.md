@@ -103,3 +103,29 @@ class ChoiceInline(admin.StackedInline):
 ```
 
 There are alternatives to `StackedInline` ie. `TabularInline` that displays the fields in a tabular form instead of a stacked form.
+
+## Overriding Admin Templates
+
+Add `[BASE_DIR / 'templates']` to `DIRS` option in `TEMPLATES` in `settings.py`.
+
+```python
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+```
+
+Just copy files from `django/contrib/admin/templates` and paste them in `./templates/admin`.
+
+Use `python -c "import django; print(django.__path__)"` to find the path to django.
