@@ -109,6 +109,8 @@ There are alternatives to `StackedInline` ie. `TabularInline` that displays the 
 Add `[BASE_DIR / 'templates']` to `DIRS` option in `TEMPLATES` in `settings.py`.
 
 ```python
+# mysite/settings.py
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
