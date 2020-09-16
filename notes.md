@@ -73,3 +73,16 @@ c = q.choice_set.create(choice_text="Just hacking again", votes=0)
 ```python
 q.choice_set.count()
 ```
+
+## Generic views
+
+Generic views expect the data being passed to them be named 'pk' instead of any other user defined name like that of a regular view.
+
+### `DetailView`
+
+`template_name` is used to define the template that the view is supposed to use instead of the default.
+
+### `ListView`
+
+`template_name` is used to define the template that the view is supposed to use instead of the default.
+`context_object_name` is used to define the name that will be used in the template to reference and display the queried data instead of the default name that Django automatically provides.
